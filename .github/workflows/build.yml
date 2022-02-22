@@ -13,16 +13,18 @@ jobs:
         repository: cheat-engine/cheat-engine
         ref: '7.4'
         
-    - uses: actions/cache@v2
-      with:
-        path: lazarus-2.2.0-fpc-3.2.2-win64.exe
-        key: LAZARUS-${{ hashFiles('lazarus-2.2.0-fpc-3.2.2-win64.exe') }}
+    - uses: gcarreno/setup-lazarus@master
+        
+#     - uses: actions/cache@v2
+#       with:
+#         path: lazarus-2.2.0-fpc-3.2.2-win64.exe
+#         key: LAZARUS-${{ hashFiles('lazarus-2.2.0-fpc-3.2.2-win64.exe') }}
 
-    - run: |
-        if (-not (Test-Path lazarus-2.2.0-fpc-3.2.2-win64.exe)) {
-            curl.exe -LO https://udomain.dl.sourceforge.net/project/lazarus/Lazarus%20Windows%2064%20bits/Lazarus%202.2.0/lazarus-2.2.0-fpc-3.2.2-win64.exe
-        }
-        ./lazarus-2.2.0-fpc-3.2.2-win64.exe /verysilent
+#     - run: |
+#         if (-not (Test-Path lazarus-2.2.0-fpc-3.2.2-win64.exe)) {
+#             curl.exe -LO https://udomain.dl.sourceforge.net/project/lazarus/Lazarus%20Windows%2064%20bits/Lazarus%202.2.0/lazarus-2.2.0-fpc-3.2.2-win64.exe
+#         }
+#         ./lazarus-2.2.0-fpc-3.2.2-win64.exe /verysilent
 
 #     - shell: cmd
 #       run: |
@@ -30,7 +32,7 @@ jobs:
 #       env:
 #         platform: Win64
 
-    - run: c:\lazarus\lazbuild.exe -B "Cheat Engine/cheatengine.lpi" --cpu=x86_64 --build-mode="Release 64-Bit O4 AVX2"
+    - run: lazbuild -B "Cheat Engine/cheatengine.lpi" --cpu=x86_64 --build-mode="Release 64-Bit O4 AVX2"
 
     - uses: actions/upload-artifact@v2
       with:
