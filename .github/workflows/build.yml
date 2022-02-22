@@ -36,8 +36,10 @@ jobs:
 #         platform: Win64
 
     - run: lazbuild -B "Cheat Engine/cheatengine.lpi" --cpu=x86_64 --build-mode="Release 64-Bit O4 AVX2"
+    
+    - run: 7z a CE.7z "Cheat Engine\bin"
 
     - uses: actions/upload-artifact@v2
       with:
-        path: Cheat Engine\bin
-        name: CE
+        path: CE.7z
+        name: CE.7z
