@@ -17,27 +17,17 @@ jobs:
       with:
         lazarus-version: "2.0.10"
 
-
-#     - uses: actions/cache@v2
-#       with:
-#         path: lazarus-2.2.0-fpc-3.2.2-win64.exe
-#         key: LAZARUS-${{ hashFiles('lazarus-2.2.0-fpc-3.2.2-win64.exe') }}
-
 #     - run: |
 #         if (-not (Test-Path lazarus-2.2.0-fpc-3.2.2-win64.exe)) {
 #             curl.exe -LO https://udomain.dl.sourceforge.net/project/lazarus/Lazarus%20Windows%2064%20bits/Lazarus%202.2.0/lazarus-2.2.0-fpc-3.2.2-win64.exe
 #         }
 #         ./lazarus-2.2.0-fpc-3.2.2-win64.exe /verysilent
 
-#     - shell: cmd
-#       run: |
-#         for /F "tokens=*" %%i in ('dir /A:-D /B /S "*.lpi"') do ("c:\lazarus\lazbuild" "%%i" --build-all)
-#       env:
-#         platform: Win64
-
     - run: lazbuild -B "Cheat Engine/cheatengine.lpi" --cpu=x86_64 --build-mode="Release 64-Bit O4 AVX2"
+
+#     - run: ls -r '*.lpi' | % { lazbuild -B $_ --cpu=x86_64 --build-mode="Release 64-Bit O4 AVX2" }
     
-    - run: 7z a CE.7z "Cheat Engine\bin"
+    - run: 7z a CE.7z ".\Cheat Engine\bin\*"
 
     - uses: actions/upload-artifact@v2
       with:
