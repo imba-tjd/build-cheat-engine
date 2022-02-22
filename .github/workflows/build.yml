@@ -1,0 +1,30 @@
+name: Build
+on:
+  workflow_dispatch:
+  push:
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        repository: cheat-engine/cheat-engine
+        ref: '7.4'
+
+    - run: |
+        curl.exe -LO https://udomain.dl.sourceforge.net/project/lazarus/Lazarus%20Windows%2064%20bits/Lazarus%202.2.0/lazarus-2.2.0-fpc-3.2.2-win64.exe
+        ./lazarus-2.2.0-fpc-3.2.2-win64.exe /verysilent
+
+    - shell: cmd
+      run: |
+        for /F "tokens=*" %%i in ('dir /A:-D /B /S "*.lpi"') do ("c:\lazarus\lazbuild" "%%i" --build-all)
+      env:
+        platform: Win64
+
+
+    - uses: actions/upload-artifact@v2
+      with:
+        path: Cheat Engine\bin
+        name: CE
