@@ -19,7 +19,7 @@ jobs:
         key: LAZARUS-${{ hashFiles('lazarus-2.2.0-fpc-3.2.2-win64.exe') }}
 
     - run: |
-        if (-not Test-Path lazarus-2.2.0-fpc-3.2.2-win64.exe) {
+        if (-not (Test-Path lazarus-2.2.0-fpc-3.2.2-win64.exe)) {
             curl.exe -LO https://udomain.dl.sourceforge.net/project/lazarus/Lazarus%20Windows%2064%20bits/Lazarus%202.2.0/lazarus-2.2.0-fpc-3.2.2-win64.exe
         }
         ./lazarus-2.2.0-fpc-3.2.2-win64.exe /verysilent
