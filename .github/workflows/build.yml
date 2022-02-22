@@ -12,9 +12,12 @@ jobs:
       with:
         repository: cheat-engine/cheat-engine
         ref: '7.4'
-        
+
     - uses: gcarreno/setup-lazarus@master
-        
+      with:
+        lazarus-version: "2.0.10"
+
+
 #     - uses: actions/cache@v2
 #       with:
 #         path: lazarus-2.2.0-fpc-3.2.2-win64.exe
