@@ -23,3 +23,7 @@ Big thanks to scripts from PhantomGamers/cheat-engine.
 * https://github.com/mrdellis/cheat-engine
 * https://github.com/kratos284/cheat-engine Failed
 * https://github.com/instantsc/cheat-engine Failed
+
+## TODO
+
+* 集成 https://cheatengine.org/download/zh_CN_All.7z
