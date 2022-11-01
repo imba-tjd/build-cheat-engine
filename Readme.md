@@ -1,4 +1,4 @@
-# Build Cheat Engine
+# Build [Cheat Engine](https://github.com/cheat-engine/cheat-engine)
 
 If you try to download CE from https://cheatengine.org/ or even its GitHub Releases, you will actually get a downloader, which will ~~silently~~ install some malwares such as *RAV Antivirus*. <ins>I later found that the installer actually asked you whether to *Accept* installing RAV and you can click *Decline*</ins>. But I think it's not friendly to non-English users because they have difficulty reading carefully.
 
@@ -12,8 +12,8 @@ Big thanks to scripts from PhantomGamers/cheat-engine.
 
 ## Pitfalls
 
-* CE doesn't support 2.2 yet. You must use 2.0.10, i.e. the required version in README, otherwise it will report `Error: (5000) Identifier not found "TSynEditorOptions"`
-* When use `lazarus-2.2.0-fpc-3.2.2-win64.exe /verysilent` in CI, it will report `invalid Lazarus directory "": directory lcl not found`. So I changed to use gcarreno/setup-lazarus
+* You must use the very lazarus version that is specified in CE's Readme. Otherwise it would likely to fail to build
+* When using `lazarus-2.2.0-fpc-3.2.2-win64.exe /verysilent` in CI, it reports `invalid Lazarus directory "": directory lcl not found`. So I changed to use gcarreno/setup-lazarus
 
 ## Other builds
 
