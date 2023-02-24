@@ -8,7 +8,7 @@ jobs:
     runs-on: windows-latest
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@master
       with:
         repository: cheat-engine/cheat-engine
         ref: '7.5'
@@ -29,7 +29,7 @@ jobs:
     
     - run: 7z a CE.7z ".\Cheat Engine\bin\*"
 
-    - uses: actions/upload-artifact@v2
+    - uses: actions/upload-artifact@master
       with:
         path: CE.7z
         name: CE.7z
