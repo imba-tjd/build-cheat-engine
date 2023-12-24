@@ -13,7 +13,7 @@ jobs:
         repository: cheat-engine/cheat-engine
         ref: '7.5'
 
-    - uses: gcarreno/setup-lazarus@v3.2
+    - uses: gcarreno/setup-lazarus@v3.2.15
       with:
         lazarus-version: "2.2.2"
 
